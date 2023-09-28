@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <style>
+        /* Your CSS styles for the product detail page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F5F2FF;
+        }
+
+        header {
+            background-color: #3C315B;
+            color: #fff;
+            padding: 5px 25px;
+            display: flex; /* Use flexbox to horizontally align items */
+            justify-content: space-between; /* Space items evenly */
+            align-items: center; 
+        }
+
+        nav {
+            display: flex;
+            padding-left: 50px;
+            padding-top: px;
+            justify-content: flex-end; /* Align navigation to the right */
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #E5CFF7;
+        }
+
+        #connectWalletButton{
+            background-color: #AB9FF2;
+            color: #f4f4f4;
+            width: 150px;
+            height: 50px;
+            font-size: 16px;
+            border-radius: 200px;
+            border-color: #9d76c1;
+        }
+
+        #connectWalletButton:hover {
+            background-color: #c2b8ff;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            color: black;
+            width: 250px;
+            height: 100px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            right: 1px;
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display:block;
+        }
+
+        .wallet-balance {
+            padding: 10px;
+        }
+
+        .product-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .product-image img {
+            max-width: 100%; /* Set the maximum width to 100% */
+            height: auto;
+            max-height: 300px; /* Limit the maximum height */
+            margin: 50px;
+        }
+
+        .product-details {
+            padding: 10px;
+            text-align: left;
+            margin-top: -200px;
+        }
+
+        #hire-button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .comments {
+            padding-left: 50px;
+        }
+
+        .comment {
+            margin: 10px;
+        }
+
+        /* Add more styles as needed */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LinkedIN</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="dropdown">
+            <button id="connectWalletButton">Connect Wallet</button>
+            <div class="dropdown-content">
+                <div class="wallet-balance">
+                    Balance: $500.00 <!-- Replace with the actual wallet balance -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="product-container">
+        <div class="product-image">
+            <img src="" alt="Product Image" id="product-image">
+            <h2 class="comments">Comments:</h2>
+            <div id="comments" class="comments"></div>
+        </div>
+        <div class="product-details">
+            <h1 id="product-title">Product Title</h1>
+            <p id="product-price">RM 0</p>
+            
+            <h2>Details</h2>
+            <p id="product-description">Product description goes here.</p>
+            <button id="hire-button">Hire</button>
+            
+                <!-- Comments will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript code to populate product details
+        const productDetails = {
+            product1: {
+                imageSrc: "https://overstandard.dk/wp-content/uploads/2022/02/justin-bieber-doodle-2.png",
+                title: "Product 1",
+                price: "RM 1,500",
+                description: "gggggggggg",
+                comments: [
+                    { user: "User 1", text: "Friendly guy 😍" },
+                    { user: "User 2", text: "Hard working." },
+                    // Add more comments for Product 1 here
+                ]
+            },
+
+            product2: {
+                imageSrc: "https://i.pinimg.com/736x/ae/e9/62/aee962ae067b5a1fef7d57943fed3468.jpg",
+                title: "Product 2",
+                price: "RM 2,500",
+                description: "Description of Product 2.",
+                comments: [
+                    { user: "Adam ", text: "Smart person." },
+                    { user: "John", text: "Pretty." },
+                    // Add more comments for Product 1 here
+                ]
+            },
+
+            product3: {
+                imageSrc: "https://lh3.googleusercontent.com/GpOmYnef2DFB6Wy2PZNkWiDgPVOhzgRWEfE-oU1vtFiAokNBA7lBL67jlx8I8veOFaGta6NT5Q8SgMEDG_R8EIDxal6e9wRc5Iiw=w335",
+                title: "Product 3",
+                price: "RM 1,800",
+                description: "Description of Product 3.",
+                comments: [
+                    { user: "Lim ", text: "Lazy boy." },
+                    { user: "Jack", text: "Always be late." },
+                    // Add more comments for Product 1 here
+                ]
+            },
+
+            product4: {
+                imageSrc: "https://i.seadn.io/gcs/files/32582fa3c436672913a03c1fb48b385b.png?auto=format&dpr=1&w=1000",
+                title: "Product 4",
+                price: "RM 3,200",
+                description: "Description of Product 4.",
+                comments: [
+                    { user: "Marry ", text: "Good attitude." },
+                    { user: "Wilson", text: "Patient guy." },
+                    // Add more comments for Product 1 here
+                ]
+            },
+            
+            product5: {
+                imageSrc: "https://res.cloudinary.com/coin-nft/image/upload/c_limit%2Cq_auto%2Cw_1200/f_auto/v1/cache/1/f8/62/f86249a120db69559b49eef79a9442bc8c4f67d7b8e078da07266c18a131731d-ZThiNzMzZTEtNTdhMS00ZWVjLWIxNWUtNWJmYzk4NmY2Y2Vh?_a=ATCkFAA0",
+                title: "Product 5",
+                price: "RM 2,200",
+                description: "Description of Product 5.",
+                comments: [
+                    { user: "Sharon ", text: "Like to smoke in office 👎" },
+                    { user: "Caroline", text: "LC but very good at coding." },
+                    // Add more comments for Product 1 here
+                ]
+            },
+            // Add details for other products (product2, product3, etc.) here
+        };
+        
+        function populateComments(productId) {
+            const product = productDetails[productId];
+            const commentsContainer = document.getElementById("comments");
+            commentsContainer.innerHTML = ""; // Clear previous comments
+
+            if (product && product.comments) {
+                product.comments.forEach(comment => {
+                    const commentElement = document.createElement("div");
+                    commentElement.classList.add("comment");
+                    commentElement.innerHTML = `<strong>${comment.user}:</strong> ${comment.text}`;
+                    commentsContainer.appendChild(commentElement);
+                });
+            }
+        }
+
+        // Function to extract the product ID from the query parameter
+        function getProductIdFromQuery() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            return urlParams.get('product');
+        }
+        const productId = getProductIdFromQuery();
+
+        // Populate the HTML with product details based on the product ID
+        if (productId && productDetails[productId]) {
+            const product = productDetails[productId];
+            document.getElementById("product-image").src = product.imageSrc;
+            document.getElementById("product-title").textContent = product.title;
+            document.getElementById("product-price").textContent = "Price: " + product.price;
+            document.getElementById("product-description").textContent = product.description;
+
+            // Populate comments for the selected product
+            populateComments(productId);
+        } else {
+            // Handle the case where the product ID is invalid or not provided
+            alert("Invalid product or product not found.");
+            // You can redirect the user or take other actions as needed.
+        }
+    </script>
+</body>
+</html>
