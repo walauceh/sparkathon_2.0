@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website</title>
+    <title>Job Chain</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,8 +35,6 @@
             margin: 0 20px;
             font-size: 18px;
             font-weight: bold;
-            
-
         }
 
         nav a:hover {
@@ -85,7 +83,7 @@
             font-weight: bold;
             margin: 10px 0;
         }
-        #connectWalletButton{
+        .connect-button{
             background-color: #AB9FF2;
             color: #f4f4f4;
             width: 150px;
@@ -94,7 +92,7 @@
             border-radius: 200px;
             border-color: #9d76c1;
         }
-        #connectWalletButton:hover {
+        .connect-button:hover {
             background-color: #c2b8ff;
         }
         .dropdown {
@@ -120,34 +118,57 @@
             display:block;
         }
 
-        .wallet-balance {
-            padding: 10px;
+        .wallet-info {
+            margin-top: 20px;
+            box-sizing: border-box;
+            padding-left: 0px;
+            position: relative;
+            bottom: 10px;
+        }
+
+        .wallet-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px 0px 0px 4px;
+            margin-right: 0px; /* Add space between the image and button */
+            margin-left: -50px;
+            padding: 0; /* Reset padding */
+        }
+
+        .wallet-button {
+            background-color: #AB9FF1;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 0px 4px 4px 0px;
+            font-family: Gilroy, sans-serif;
         }
 
     </style>
 </head>
 <body>
     <header>
-        <h1>LinkedIN</h1>
+        <h1>Job Chain</h1>
         <nav>
             <a href="#">Home</a>
-            <a href="#">Products</a>
-            <a href="#">Contact</a>
+            <a href="#">Jobs</a>
+            <a href="#">Finance</a>
         </nav>
-        <div class="dropdown">
-            <button id="connectWalletButton">Connect Wallet</button>
-            <div class="dropdown-content">
-                <div class="wallet-balance">
-                    Balance: $500.00 <!-- Replace with the actual wallet balance -->
-                </div>
-            </div>
+        <div>
+            <button class="connect-button" id="connectButton">Connect to Wallet</button>
         </div>
+
+        <div class="wallet-info" id="walletInfo" style="display: none;">
+            <button class="wallet-button" id="walletAddressButton"></button>
+        </div>
+
     </header>
 
     <div class="container">
         <div class="product" onclick="openProductDetail('product1.html?product=product1')">
             <img src="https://overstandard.dk/wp-content/uploads/2022/02/justin-bieber-doodle-2.png" alt="Product 1">
-            <h2>Product 1</h2>
+            <h2>Britney Lee</h2>
             <div class="rating">&#9733; &#9733; &#9733; &#9734; &#9734;</div>
             <p>RM 1,500</p>
    
@@ -191,6 +212,50 @@
         function openProductDetail(productPage) {
             window.location.href = productPage;
         }
+    </script>
+
+    <script>
+        // Function to handle the "Connect" button click
+        document.getElementById('connectButton').addEventListener('click', async () => {
+            // Check if the Phantom Wallet extension is installed
+            if (window.solana && window.solana.isPhantom) {
+                try {
+                    // Request connection to Phantom Wallet
+                    await window.solana.connect();
+
+                    // Get the connected wallet's public key
+                    const publicKey = window.solana.publicKey.toString();
+
+                    // Replace the "Connect" button with the wallet address and image
+                    document.getElementById('connectButton').style.display = 'none';
+                    document.getElementById('walletInfo').style.display = 'flex'; // Show wallet info container
+
+                    // Create an image element for the wallet image
+                    const walletImage = document.createElement('img');
+                    walletImage.src = 'phantom1.jpg'; // Set the image source
+                    walletImage.alt = 'Phantom Wallet Logo'; // Add alt text for accessibility
+                    walletImage.className = 'wallet-image'; // Apply CSS class
+
+                    // Create a button element for the wallet address
+                    const walletAddressButton = document.createElement('button');
+                    walletAddressButton.className = 'wallet-button';
+                    walletAddressButton.id = 'walletAddressButton';
+                    walletAddressButton.textContent = publicKey;
+
+                    // Append the image and button to the wallet info container
+                    const walletInfoContainer = document.getElementById('walletInfo');
+                    walletInfoContainer.appendChild(walletImage);
+                    walletInfoContainer.appendChild(walletAddressButton);
+
+                    alert('Connected to Phantom Wallet!');
+                } catch (error) {
+                    console.error('Error connecting to Phantom Wallet:', error);
+                    alert('Failed to connect to Phantom Wallet. Please make sure Phantom is installed and unlocked.');
+                }
+            } else {
+                alert('Phantom Wallet extension is not installed. Please install and unlock Phantom Wallet to continue.');
+            }
+        });
     </script>
 
 </body>
