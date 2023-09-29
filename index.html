@@ -1,150 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Chain</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #F5F2FF;
+        /* Animation for the header background */
+        @keyframes backgroundAnimation {
+            0% {
+                background-color: #3C315B; /* Start with the dark color */
+            }
+            50% {
+                background-color: #9751da; /* Transition to the light color */
+            }
+            100% {
+                background-color: #3C315B; /* Return to the dark color */
+            }
         }
-
+        
+        /* Apply the animation to the header */
         header {
             background-color: #3C315B;
             color: #fff;
             padding: 5px 25px;
-            display: flex; /* Use flexbox to horizontally align items */
-            justify-content: space-between; /* Space items evenly */
-            align-items: center; 
-        }
-
-        nav {
             display: flex;
-            padding-left: 50px;
-            padding-top: px;
-            justify-content: flex-end; /* Align navigation to the right */
-            align-items: center;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #E5CFF7;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-            display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
+            align-items: center;
+            animation: backgroundAnimation 5s infinite linear; /* Use the 'backgroundAnimation' animation */
         }
-
-        .product {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            width: calc(25% - 20px); /* 4 products in a row with margin */
-            box-sizing: border-box;
-        }
-        
-        .container :hover{
-            background-color: #f5f5f5;
-        }
-
-        .product img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .product h2 {
-            font-size: 17px;
-            margin: 10px 0;
-        }
-
-        .product .rating {
-            color: #ff9800;
-        }
-
-        .product p {
-            font-size: 15px;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-        .connect-button{
-            background-color: #AB9FF2;
-            color: #f4f4f4;
-            width: 150px;
-            height: 50px;
-            font-size: 16px;
-            border-radius: 200px;
-            border-color: #9d76c1;
-        }
-        .connect-button:hover {
-            background-color: #c2b8ff;
-        }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            color: black;
-            width: 250px;
-            height: 100px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            right: 1px;
-            border-radius: 4px;
-            padding: 10px;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display:block;
-        }
-
-        .wallet-info {
-            margin-top: 20px;
-            box-sizing: border-box;
-            padding-left: 0px;
-            position: relative;
-            bottom: 10px;
-        }
-
-        .wallet-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 4px 0px 0px 4px;
-            margin-right: 0px; /* Add space between the image and button */
-            margin-left: -50px;
-            padding: 0; /* Reset padding */
-        }
-
-        .wallet-button {
-            background-color: #AB9FF1;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 0px 4px 4px 0px;
-            font-family: Gilroy, sans-serif;
-        }
-
     </style>
 </head>
 <body>
@@ -153,7 +38,7 @@
         <nav>
             <a href="#">Home</a>
             <a href="#">Jobs</a>
-            <a href="#">Finance</a>
+            <a href="finance.html">Finance</a>
         </nav>
         <div>
             <button class="connect-button" id="connectButton">Connect to Wallet</button>
@@ -167,7 +52,7 @@
 
     <div class="container">
         <div class="product" onclick="openProductDetail('product1.html?product=product1')">
-            <img src="https://overstandard.dk/wp-content/uploads/2022/02/justin-bieber-doodle-2.png" alt="Product 1">
+            <img src="/nft/1.png" alt="Product 1">
             <h2>Britney Lee</h2>
             <div class="rating">&#9733; &#9733; &#9733; &#9734; &#9734;</div>
             <p>RM 1,500</p>
@@ -175,7 +60,7 @@
         </div>
         
         <div class="product" onclick="openProductDetail('product1.html?product=product2')">
-            <img src="https://i.pinimg.com/736x/ae/e9/62/aee962ae067b5a1fef7d57943fed3468.jpg" alt="Product 2">
+            <img src="/nft/2.png" alt="Product 2">
             <h2>Product 2</h2>
             <div class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
             <p>RM 2,500</p>
@@ -183,7 +68,7 @@
 
         <!-- Product 3 -->
         <div class="product" onclick="openProductDetail('product1.html?product=product3')">
-            <img src="https://lh3.googleusercontent.com/GpOmYnef2DFB6Wy2PZNkWiDgPVOhzgRWEfE-oU1vtFiAokNBA7lBL67jlx8I8veOFaGta6NT5Q8SgMEDG_R8EIDxal6e9wRc5Iiw=w335" alt="Product 3">
+            <img src="/nft/3.png" alt="Product 3">
             <h2>Product 3</h2>
             <div class="rating">&#9733; &#9733; &#9733; &#9734; &#9734;</div>
             <p>RM 1,800</p>
@@ -191,7 +76,7 @@
 
         <!-- Product 4 -->
         <div class="product" onclick="openProductDetail('product1.html?product=product4')">
-            <img src="https://i.seadn.io/gcs/files/32582fa3c436672913a03c1fb48b385b.png?auto=format&dpr=1&w=1000" alt="Product 4">
+            <img src="/nft/4.png" alt="Product 4">
             <h2>Product 4</h2>
             <div class="rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
             <p>RM 3,200</p>
@@ -199,13 +84,20 @@
 
         <!-- Product 5 -->
         <div class="product" onclick="openProductDetail('product1.html?product=product5')">
-            <img src="https://res.cloudinary.com/coin-nft/image/upload/c_limit%2Cq_auto%2Cw_1200/f_auto/v1/cache/1/f8/62/f86249a120db69559b49eef79a9442bc8c4f67d7b8e078da07266c18a131731d-ZThiNzMzZTEtNTdhMS00ZWVjLWIxNWUtNWJmYzk4NmY2Y2Vh?_a=ATCkFAA0" alt="Product 5">
+            <img src="/nft/5.png" alt="Product 5">
             <h2>Product 5</h2>
             <div class="rating">&#9733; &#9733; &#9733; &#9734; &#9734;</div>
             <span class="rating">(1)</span>
             <p>RM 2,200</p>
         </div>
-        <!-- Add more products as needed -->
+
+        <!-- Product 6 -->
+        <div class="product" onclick="openProductDetail('product1.html?product=product6')">
+            <img src="/nft/6.png" alt="Product 6">
+            <h2>Product 6</h2>
+            <div class="rating">&#9733; &#9733; &#9733; &#9734; &#9734;</div>
+            <p>RM 2,200</p>
+        </div>
     </div>
 
     <script>
@@ -214,49 +106,6 @@
         }
     </script>
 
-    <script>
-        // Function to handle the "Connect" button click
-        document.getElementById('connectButton').addEventListener('click', async () => {
-            // Check if the Phantom Wallet extension is installed
-            if (window.solana && window.solana.isPhantom) {
-                try {
-                    // Request connection to Phantom Wallet
-                    await window.solana.connect();
-
-                    // Get the connected wallet's public key
-                    const publicKey = window.solana.publicKey.toString();
-
-                    // Replace the "Connect" button with the wallet address and image
-                    document.getElementById('connectButton').style.display = 'none';
-                    document.getElementById('walletInfo').style.display = 'flex'; // Show wallet info container
-
-                    // Create an image element for the wallet image
-                    const walletImage = document.createElement('img');
-                    walletImage.src = 'phantom1.jpg'; // Set the image source
-                    walletImage.alt = 'Phantom Wallet Logo'; // Add alt text for accessibility
-                    walletImage.className = 'wallet-image'; // Apply CSS class
-
-                    // Create a button element for the wallet address
-                    const walletAddressButton = document.createElement('button');
-                    walletAddressButton.className = 'wallet-button';
-                    walletAddressButton.id = 'walletAddressButton';
-                    walletAddressButton.textContent = publicKey;
-
-                    // Append the image and button to the wallet info container
-                    const walletInfoContainer = document.getElementById('walletInfo');
-                    walletInfoContainer.appendChild(walletImage);
-                    walletInfoContainer.appendChild(walletAddressButton);
-
-                    alert('Connected to Phantom Wallet!');
-                } catch (error) {
-                    console.error('Error connecting to Phantom Wallet:', error);
-                    alert('Failed to connect to Phantom Wallet. Please make sure Phantom is installed and unlocked.');
-                }
-            } else {
-                alert('Phantom Wallet extension is not installed. Please install and unlock Phantom Wallet to continue.');
-            }
-        });
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>

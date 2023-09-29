@@ -1,86 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Detail</title>
     <style>
         /* Your CSS styles for the product detail page */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #F5F2FF;
+        
+        /* Animation for the header background */
+        @keyframes backgroundAnimation {
+            0% {
+                background-color: #3C315B; /* Start with the dark color */
+            }
+            50% {
+                background-color: #9751da; /* Transition to the light color */
+            }
+            100% {
+                background-color: #3C315B; /* Return to the dark color */
+            }
         }
-
+        
+        /* Apply the animation to the header */
         header {
             background-color: #3C315B;
             color: #fff;
             padding: 5px 25px;
-            display: flex; /* Use flexbox to horizontally align items */
-            justify-content: space-between; /* Space items evenly */
-            align-items: center; 
-        }
-
-        nav {
             display: flex;
-            padding-left: 50px;
-            padding-top: px;
-            justify-content: flex-end; /* Align navigation to the right */
+            justify-content: space-between;
             align-items: center;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #E5CFF7;
-        }
-
-        #connectWalletButton{
-            background-color: #AB9FF2;
-            color: #f4f4f4;
-            width: 150px;
-            height: 50px;
-            font-size: 16px;
-            border-radius: 200px;
-            border-color: #9d76c1;
-        }
-
-        #connectWalletButton:hover {
-            background-color: #c2b8ff;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            color: black;
-            width: 250px;
-            height: 100px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            right: 1px;
-            border-radius: 4px;
-            padding: 10px;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display:block;
-        }
-
-        .wallet-balance {
-            padding: 10px;
+            animation: backgroundAnimation 5s infinite linear; /* Use the 'backgroundAnimation' animation */
         }
 
         .product-container {
@@ -130,15 +79,14 @@
         <nav>
             <a href="#">Home</a>
             <a href="index.html">Jobs</a>
-            <a href="#">Finance</a>
+            <a href="finance.html">Finance</a>
         </nav>
-        <div class="dropdown">
-            <button id="connectWalletButton">Connect Wallet</button>
-            <div class="dropdown-content">
-                <div class="wallet-balance">
-                    Balance: $500.00 <!-- Replace with the actual wallet balance -->
-                </div>
-            </div>
+        <div>
+            <button class="connect-button" id="connectButton">Connect to Wallet</button>
+        </div>
+
+        <div class="wallet-info" id="walletInfo" style="display: none;">
+            <button class="wallet-button" id="walletAddressButton"></button>
         </div>
     </header>
 
@@ -223,7 +171,19 @@
                     // Add more comments for Product 1 here
                 ]
             },
-            // Add details for other products (product2, product3, etc.) here
+            
+
+            product6: {
+                imageSrc: "https://res.cloudinary.com/coin-nft/image/upload/c_limit%2Cq_auto%2Cw_1200/f_auto/v1/cache/1/f8/62/f86249a120db69559b49eef79a9442bc8c4f67d7b8e078da07266c18a131731d-ZThiNzMzZTEtNTdhMS00ZWVjLWIxNWUtNWJmYzk4NmY2Y2Vh?_a=ATCkFAA0",
+                title: "Product 5",
+                price: "RM 2,200",
+                description: "Description of Product 5.",
+                comments: [
+                    { user: "Sharon ", text: "Like to smoke in office 👎" },
+                    { user: "Caroline", text: "LC but very good at coding." },
+                    // Add more comments for Product 1 here
+                ]
+            },
         };
         
         function populateComments(productId) {
@@ -265,5 +225,7 @@
             // You can redirect the user or take other actions as needed.
         }
     </script>
+
+    <script src="script.js"></script>
 </body>
 </html>

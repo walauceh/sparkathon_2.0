@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana Wallet Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Animation for the header background */
+        @keyframes backgroundAnimation {
+            0% {
+                background-color: #3C315B; /* Start with the dark color */
+            }
+            50% {
+                background-color: #9751da; /* Transition to the light color */
+            }
+            100% {
+                background-color: #3C315B; /* Return to the dark color */
+            }
+        }
+        
+        /* Apply the animation to the header */
+        header {
+            background-color: #3C315B;
+            color: #fff;
+            padding: 5px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: backgroundAnimation 5s infinite linear; /* Use the 'backgroundAnimation' animation */
+        }
+
+        main {
+            margin-left: 30px; /* Adjust the margin value as needed */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LinkedIN</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="index.html">Jobs</a>
+            <a href="#">Finance</a>
+        </nav>
+        <div>
+            <button class="connect-button" id="connectButton">Connect to Wallet</button>
+        </div>
+
+        <div class="wallet-info" id="walletInfo" style="display: none;">
+            <button class="wallet-button" id="walletAddressButton"></button>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <section>
+            <h2>Wallet Balance</h2>
+            <p>Click the button below to request your Solana wallet balance:</p>
+            <button id="balanceButton">Request Balance</button>
+            <p id="balanceResult"></p>
+        </section>
+
+        <section>
+            <h2>Transfer Solana Tokens</h2>
+            <form id="transferForm">
+                <label for="recipientAddress">Recipient Address:</label>
+                <input type="text" id="recipientAddress" name="recipientAddress" placeholder="Enter recipient address" required>
+                <label for="amount">Amount (SOL):</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount" required min="0">
+                <button type="submit">Transfer</button>
+            </form>
+            <p id="transferResult"></p>
+        </section>
+    </main>
+
+    <!-- JavaScript to handle functionality -->
+    <script src="script.js"></script>
+    <script src="balance.js"></script>
+    </body>
+</body>
+</html>
